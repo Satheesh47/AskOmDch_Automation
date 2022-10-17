@@ -13,5 +13,7 @@ public class Constants {
 	public static final String USER_NAME = "Tester47";
 	public static final String USER_MAIL_ADDRESS = "Tester47@email.com";
 	public static final String USER_PASSWORD = "Tester@47";
+	public static final String ORDER_CONFIRMATION_MESSAGE = "Thank you. Your order has been received.";
+	public static final String EXCEL_FILE = USER_DIRECTORY + "//src//test//resources//ExcelData//ExcelTestData.xlsx";
 
 }

@@ -6,13 +6,13 @@ import com.askomdch.utilities.Util;
 
 public class CartPage extends CustomDriver {
 	
-	public WebDriver driver;
+	//public WebDriver driver;
 	private String PRODUCT_NAME = "css=>td[class='product-name'] a";
 	private String CHECKOUT_BUTTON = "xpath=>//a[normalize-space()='Proceed to checkout']";
 	
 	public CartPage(WebDriver driver) {
 		super(driver);
-		this.driver= driver;
+		//this.driver= driver;
 	}
 	
 	public boolean verifyProductName(String productName) {
@@ -20,7 +20,7 @@ public class CartPage extends CustomDriver {
 	}
 	
 	public CheckoutPage clickProceedToCheckout() {
-		elementClick(CHECKOUT_BUTTON, "Clicking on Proceed to Checkout button ..");
+		elementClick(CHECKOUT_BUTTON, "Proceed to Checkout button");
 		return new CheckoutPage(driver);
 	}
 	

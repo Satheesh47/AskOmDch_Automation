@@ -6,12 +6,12 @@ import com.askomdch.utilities.Util;
 
 public class CheckoutConfirmationPage extends CustomDriver {
 	
-	public WebDriver driver;
+	//public WebDriver driver;
 	private String ORDER_CONFIRMATION_FIELD = "css=>.woocommerce-notice";
 	
 	public CheckoutConfirmationPage(WebDriver driver) {
 		super(driver);
-		this.driver= driver;
+		//this.driver= driver;
 	}
 	
 	public boolean verifyOrderConfirmationMessage(String expectedMessage) {

@@ -1,4 +1,4 @@
-package com.askomdch.base;
+package com.askomdch.utilities;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import com.askomdch.utilities.Constants;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverFactory {

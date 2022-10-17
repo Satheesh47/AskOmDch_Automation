@@ -5,7 +5,8 @@ import com.askomdch.base.CustomDriver;
 
 public class CheckoutPage extends CustomDriver {
 	
-	public WebDriver driver;
+	//public WebDriver driver;
+	private String CHECKOUT_TITLE_FIELD = "xpath=>//h1[normalize-space()='Checkout']";
 	private String FIRST_NAME_FIELD = "xpath=>//input[@name='billing_first_name']";
 	private String LAST_NAME_FIELD = "xpath=>//input[@name='billing_last_name']";
 	private String STREET_ADDRESS_FIELD = "xpath=>//input[@name='billing_address_1']";
@@ -20,31 +21,38 @@ public class CheckoutPage extends CustomDriver {
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
-		this.driver= driver;
+		//this.driver= driver;
 	}
 	
-	public void fillFirstNameField(String data) {
+	public CheckoutPage fillFirstNameField(String data) {
+		waitForElementVisible(CHECKOUT_TITLE_FIELD, 5);
 		sendData(FIRST_NAME_FIELD, data, "First Name field in the Checkout page");
+		return this;
 	}
 	
-	public void fillLastNameField(String data) {
+	public CheckoutPage fillLastNameField(String data) {
 		sendData(LAST_NAME_FIELD, data, "Last Name field in the Checkout page");
+		return this;
 	}
 	
-	public void fillStreetAddressField(String data) {
+	public CheckoutPage fillStreetAddressField(String data) {
 		sendData(STREET_ADDRESS_FIELD, data, "Street Address field in the Checkout page");
+		return this;
 	}
 	
-	public void fillCityField(String data) {
+	public CheckoutPage fillCityField(String data) {
 		sendData(CITY_FIELD, data, "City field in the Checkout page");
+		return this;
 	}
 	
-	public void fillZipCodeField(String data) {
+	public CheckoutPage fillZipCodeField(String data) {
 		sendData(ZIPCODE_FIELD, data, "Zip Code field in the Checkout page");
+		return this;
 	}
 	
-	public void fillEmailField(String data) {
+	public CheckoutPage fillEmailField(String data) {
 		sendData(EMAIL_FIELD, data, "Email field in the Checkout page");
+		return this;
 	}
 	
 	public CheckoutConfirmationPage clickPlaceOrder() {
@@ -53,6 +61,7 @@ public class CheckoutPage extends CustomDriver {
 	}
 	
 	public void userLogin(String userName, String password) {
+		waitForElementVisible(CHECKOUT_TITLE_FIELD, 5);
 		elementClick(LOGIN_LINK, "Login link");
 		waitForElementVisible(USERNAME_FIELD, 5);
 		sendData(USERNAME_FIELD, userName, "User name");
@@ -60,11 +69,4 @@ public class CheckoutPage extends CustomDriver {
 		elementClick(LOGIN_BUTTON, "Login button");
 		waitForElementInVisible(LOGIN_LINK, 5);
 	}
-	
-	
-	
-	
-	
-	
-
 }

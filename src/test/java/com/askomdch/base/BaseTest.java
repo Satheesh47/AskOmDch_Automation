@@ -1,12 +1,12 @@
 package com.askomdch.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-
 import com.askdomch.pageclasses.CartPage;
 import com.askdomch.pageclasses.CheckoutConfirmationPage;
 import com.askdomch.pageclasses.CheckoutPage;
@@ -15,11 +15,13 @@ import com.askdomch.pageclasses.SearchResultsPage;
 import com.askdomch.pageclasses.StorePage;
 import com.askdomch.pageclasses.TopNavigationMenu;
 import com.askomdch.utilities.Constants;
+import com.askomdch.utilities.ExcelUtility;
+import com.askomdch.utilities.WebDriverFactory;
 
 public class BaseTest {
 	
-	public WebDriver driver;
-	public WebDriverWait wait;
+	protected WebDriver driver;
+	protected WebDriverWait wait;
 	protected String baseURL;
 	protected TopNavigationMenu top;
 	protected StorePage store;
@@ -28,29 +30,23 @@ public class BaseTest {
 	protected CartPage cart;
 	protected CheckoutPage checkout;
 	protected CheckoutConfirmationPage checkoutConfirmation;
+	private static Logger log = LogManager.getLogger(BaseTest.class);
 	
 	@BeforeClass
 	@Parameters({"browser"})
 	public void browserSetUp(String browser) {
-		System.out.println("****** Before Class ******");
+		log.info("****** Before Class ******");
 		driver = WebDriverFactory.getInstance().getDriver(browser);
 		driver.get(Constants.BASE_URL);
 		top = new TopNavigationMenu(driver);
-		
+		ExcelUtility.setExcelFile(Constants.EXCEL_FILE, "MyFirstTestCase");
 	}
 	
-	@BeforeMethod
-	public void methodSetUp() {
-		//log.info("****** Before Method ******");
-		System.out.println("****** Before Method ******");
-		//CheckPoint.clearHasMap();
-	}
 	
 	@AfterClass
 	public void commonTearDown() throws Exception {
-		System.out.println("****** After Class ******");
+		log.info("****** After Class ******");
 		WebDriverFactory.getInstance().quitDriver();
-		
 	}
 
 }

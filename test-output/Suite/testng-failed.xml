@@ -8,7 +8,6 @@
         <methods>
           <include name="loginAndCheckoutUsing_DirectBankTransfer"/>
           <include name="closeBrowser"/>
-          <include name="guestCheckoutUsing_DirectBankTransfer"/>
           <include name="methodSetUp"/>
           <include name="browserSetUp"/>
           <include name="commonTearDown"/>
