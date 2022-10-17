@@ -25,7 +25,6 @@ public class CustomDriver {
 	
 	protected WebDriver driver;
 	private JavascriptExecutor js;
-	//protected static final Logger log = LogManager.getLogger(CustomDriver.class.getName());
 	private static Logger log = LogManager.getLogger(CustomDriver.class);
 	
 	public CustomDriver() {

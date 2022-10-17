@@ -18,6 +18,8 @@ public class CheckoutPage extends CustomDriver {
 	private String USERNAME_FIELD = "xpath=>//input[@name='username']";
 	private String PASSWORD_FIELD = "xpath=>//input[@name='password']";
 	private String LOGIN_BUTTON = "css=>button[value='Login']";
+	private String COUNTRY_DROPDOWN = "id=>billing_country";
+	private String STATE_DROPDOWN = "id=>billing_state";
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -58,6 +60,16 @@ public class CheckoutPage extends CustomDriver {
 	public CheckoutConfirmationPage clickPlaceOrder() {
 		elementClick(PLACE_ORDER_BUTTON, "Place Order button");
 		return new CheckoutConfirmationPage(driver);
+	}
+	
+	public CheckoutPage selectCountry(String countryName) {
+		selectOption(COUNTRY_DROPDOWN, countryName, "Country dropdown");
+		return this;
+	}
+	
+	public CheckoutPage selectState(String stateName) {
+		selectOption(STATE_DROPDOWN, stateName, "State dropdown");
+		return this;
 	}
 	
 	public void userLogin(String userName, String password) {

@@ -5,10 +5,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import com.google.common.collect.Ordering;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Util {
 	
-	//private static final Logger log = LogManager.getLogger(Util.class.getName());
+	private static final Logger log = LogManager.getLogger(Util.class.getName());
 
 	/***
 	 * Sleep for specified number of milliseconds
@@ -18,7 +20,7 @@ public class Util {
 	 */
 	public static void sleep(long msec, String info) {
 		if (info != null) {
-			//log.info("Wait " + msec + " for " + info);
+			log.info("Wait " + msec + " for " + info);
 		}
 		try {
 			Thread.sleep(msec);
@@ -63,7 +65,7 @@ public class Util {
 	public static int getRandomNumber(int min, int max) {
 		int diff = max - min;
 		int randomNum = (int) (min + Math.random() * diff);
-		//log.info("Random Number :: " + randomNum + " within range :: " + min + " and :: " + max);
+		log.info("Random Number :: " + randomNum + " within range :: " + min + " and :: " + max);
 		return randomNum;
 	}
 
@@ -91,7 +93,7 @@ public class Util {
 			sbuilder.append(chars.charAt(index));
 		}
 		String randomString = sbuilder.toString();
-		//log.info("Random string with length :: " + length + " is :: " + randomString);
+		log.info("Random string with length :: " + length + " is :: " + randomString);
 		return randomString;
 	}
 
@@ -114,7 +116,7 @@ public class Util {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat(format);
 		String formattedDate = formatter.format(date);
-		//log.info("Date with format :: " + format + " :: " + formattedDate);
+		log.info("Date with format :: " + format + " :: " + formattedDate);
 		return formattedDate;
 	}
 
@@ -128,7 +130,7 @@ public class Util {
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		String date = formatter.format(currentDate.getTime()).replace("/", "_");
 		date = date.replace(":", "_");
-		//log.info("Date and Time :: " + date);
+		log.info("Date and Time :: " + date);
 		return date;
 	}
 
@@ -140,14 +142,14 @@ public class Util {
 	 * @return boolean result
 	 */
 	public static boolean verifyTextContains(String actualText, String expText) {
-		//log.info("Actual Text from Web Application UI --> " + actualText);
-		//log.info("Expected Text from Web Application UI --> " + expText);
+		log.info("Actual Text from Web Application UI --> " + actualText);
+		log.info("Expected Text from Web Application UI --> " + expText);
 
 		if (actualText.toLowerCase().contains(expText.toLowerCase())) {
-			//log.info("### Verification Contains !!!");
+			log.info("### Verification Contains !!!");
 			return true;
 		} else {
-			//log.error("### Verification DOES NOT Contains !!!");
+			log.error("### Verification DOES NOT Contains !!!");
 			return false;
 		}
 	}
@@ -161,14 +163,14 @@ public class Util {
 	 * @return
 	 */
 	public static boolean verifyTextMatch(String actualText, String expText) {
-		//log.info("Actual Text from Web Application UI --> " + actualText);
-		//log.info("Expected Text from Web Application UI --> " + expText);
+		log.info("Actual Text from Web Application UI --> " + actualText);
+		log.info("Expected Text from Web Application UI --> " + expText);
 
 		if (actualText.equals(expText)) {
-			//log.info("### Verification MATCHED !!!");
+			log.info("### Verification MATCHED !!!");
 			return true;
 		} else {
-			//log.error("### Verification DOES NOT MATCH !!!");
+			log.error("### Verification DOES NOT MATCH !!!");
 			return false;
 		}
 	}
@@ -187,7 +189,7 @@ public class Util {
 				return false;
 			}
 		}
-		//log.info("Actual List Contains Expected List !!");
+		log.info("Actual List Contains Expected List !!");
 		return true;
 	}
 
@@ -216,10 +218,10 @@ public class Util {
 			}
 		}
 		if (found) {
-			//log.info("Actual List Matches Expected List !!!");
+			log.info("Actual List Matches Expected List !!!");
 			return true;
 		} else {
-			//log.error("Actual List DOES NOT Match Expected List !!!");
+			log.error("Actual List DOES NOT Match Expected List !!!");
 			return false;
 		}
 	}
@@ -235,11 +237,11 @@ public class Util {
 		int actListSize = actList.size();
 		for (int i = 0; i < actListSize; i++) {
 			if (!actList.contains(item)) {
-				//log.error("Item is NOT present in List !!!");
+				log.error("Item is NOT present in List !!!");
 				return false;
 			}
 		}
-		//log.info("Item is present in List !!!");
+		log.info("Item is present in List !!!");
 		return true;
 	}
 

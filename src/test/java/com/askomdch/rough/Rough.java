@@ -1,17 +1,16 @@
 package com.askomdch.rough;
 
-import com.askomdch.utilities.Constants;
-import com.askomdch.utilities.ExcelUtility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Rough {
 	
+	private static Logger log = LogManager.getLogger(Rough.class.getName());
 	
 	public static void main(String[] args) {
 		
-		ExcelUtility.setExcelFile(Constants.EXCEL_FILE, "MyFirstTestCase");
-		System.out.println(Constants.EXCEL_FILE);
-		Object[][] testData = ExcelUtility.getTestData("guestCheckoutUsing_DirectBankTransfer");
-		System.out.println(testData[0][7]);
+		log.info("This is a log info");
+		log.trace("This is a log trace");
 		
 
 	}

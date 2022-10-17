@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-16T21:36:21 IST" name="Suite" finished-at="2022-10-16T21:36:31 IST" duration-ms="10761">
+  <suite started-at="2022-10-17T20:52:40 IST" name="Suite" finished-at="2022-10-17T20:53:03 IST" duration-ms="23170">
     <groups>
     </groups>
-    <test started-at="2022-10-16T21:36:21 IST" name="AskOmDch Test Automation" finished-at="2022-10-16T21:36:31 IST" duration-ms="10761">
+    <test started-at="2022-10-17T20:52:40 IST" name="AskOmDch Test Automation" finished-at="2022-10-17T20:53:03 IST" duration-ms="23170">
       <class name="com.askomdch.testclasses.MyFirstTestCase">
-        <test-method is-config="true" signature="browserSetUp(java.lang.String)[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:21 IST" name="browserSetUp" finished-at="2022-10-16T21:36:24 IST" duration-ms="3221" status="PASS">
+        <test-method is-config="true" signature="browserSetUp(java.lang.String)[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:40 IST" name="browserSetUp" finished-at="2022-10-17T20:52:45 IST" duration-ms="4637" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserSetUp -->
-        <test-method signature="guestCheckoutUsing_DirectBankTransfer(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:24 IST" name="guestCheckoutUsing_DirectBankTransfer" data-provider="guestCheckoutUsingDirectBankTransfer" finished-at="2022-10-16T21:36:30 IST" duration-ms="6054" status="PASS">
+        <test-method is-config="true" signature="methodSetUp()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:45 IST" name="methodSetUp" finished-at="2022-10-17T20:52:45 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- methodSetUp -->
+        <test-method signature="guestCheckoutUsing_DirectBankTransfer(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:45 IST" name="guestCheckoutUsing_DirectBankTransfer" data-provider="guestCheckoutUsingDirectBankTransfer" finished-at="2022-10-17T20:52:53 IST" duration-ms="8804" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -59,69 +63,80 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- guestCheckoutUsing_DirectBankTransfer -->
-        <test-method is-config="true" signature="methodSetUp()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:24 IST" name="methodSetUp" finished-at="2022-10-16T21:36:24 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- methodSetUp -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:30 IST" name="closeBrowser" finished-at="2022-10-16T21:36:30 IST" duration-ms="81" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:53 IST" name="closeBrowser" finished-at="2022-10-17T20:52:53 IST" duration-ms="100" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method signature="loginAndCheckoutUsing_DirectBankTransfer()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:30 IST" name="loginAndCheckoutUsing_DirectBankTransfer" finished-at="2022-10-16T21:36:31 IST" duration-ms="626" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.askomdch.testclasses.MyFirstTestCase.loginAndCheckoutUsing_DirectBankTransfer(MyFirstTestCase.java:48)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:766)
-at org.testng.TestRunner.run(TestRunner.java:587)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-at org.testng.TestNG.runSuites(TestNG.java:1039)
-at org.testng.TestNG.run(TestNG.java:1007)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method is-config="true" signature="methodSetUp()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:53 IST" name="methodSetUp" finished-at="2022-10-17T20:52:53 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- methodSetUp -->
+        <test-method signature="loginAndCheckoutUsing_DirectBankTransfer(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:52:53 IST" name="loginAndCheckoutUsing_DirectBankTransfer" data-provider="loginAndCheckoutUsingDirectBankTransfer" finished-at="2022-10-17T20:53:02 IST" duration-ms="8731" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Blue Shoes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Tester47]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Tester@47]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Tester_FN]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Tester_LN]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[123 Test Ave]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Chennai]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Tamil Nadu]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[600100]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[test@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAndCheckoutUsing_DirectBankTransfer -->
-        <test-method is-config="true" signature="methodSetUp()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:30 IST" name="methodSetUp" finished-at="2022-10-16T21:36:30 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- methodSetUp -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:31 IST" name="closeBrowser" finished-at="2022-10-16T21:36:31 IST" duration-ms="105" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:53:02 IST" name="closeBrowser" finished-at="2022-10-17T20:53:02 IST" duration-ms="121" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="commonTearDown()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@3b0c9195]" started-at="2022-10-16T21:36:31 IST" name="commonTearDown" finished-at="2022-10-16T21:36:31 IST" duration-ms="628" status="PASS">
+        <test-method is-config="true" signature="commonTearDown()[pri:0, instance:com.askomdch.testclasses.MyFirstTestCase@366ef90e]" started-at="2022-10-17T20:53:02 IST" name="commonTearDown" finished-at="2022-10-17T20:53:03 IST" duration-ms="714" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- commonTearDown -->

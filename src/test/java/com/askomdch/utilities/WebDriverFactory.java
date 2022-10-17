@@ -1,6 +1,8 @@
 package com.askomdch.utilities;
 
 import java.util.concurrent.TimeUnit;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,7 +10,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverFactory {
@@ -16,6 +17,7 @@ public class WebDriverFactory {
 	private static final WebDriverFactory instance = new WebDriverFactory();
 	private static ThreadLocal<WebDriver> threadedDriver = new ThreadLocal<WebDriver>();
 	private static ThreadLocal<String> threadedBrowser = new ThreadLocal<String>();
+	private static Logger log = LogManager.getLogger(WebDriverFactory.class.getName());
 	
 	private WebDriverFactory() {
 	}
@@ -35,21 +37,21 @@ public class WebDriverFactory {
 					FirefoxOptions firefoxOptions = setFirefoxOptions();
 					driver = new FirefoxDriver(firefoxOptions);
 					threadedDriver.set(driver);
-					//log.info("Firefox browser initiated ...");
+					log.info("Firefox browser initiated ...");
 				}
 				if (browser.equalsIgnoreCase(Constants.CHROME)) {
 					ChromeOptions chromeOptions = setChromeOptions();
 					WebDriverManager.chromedriver().setup();
 					driver = new ChromeDriver(chromeOptions);
 					threadedDriver.set(driver);
-					//log.info("Chrome browser initiated ...");
+					log.info("Chrome browser initiated ...");
 				}
 				if (browser.equalsIgnoreCase(Constants.EDGE)) {
 					
 					WebDriverManager.edgedriver();
 					driver = new EdgeDriver();
 					threadedDriver.set(driver);
-					//log.info("Edge browser initiated ...");
+					log.info("Edge browser initiated ...");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -73,7 +75,7 @@ public class WebDriverFactory {
     private void setDriver(String browser) {
         String driverPath = "";
         String os = Constants.OS_NAME.toLowerCase().substring(0, 3);
-       // log.info("OS Name from system property :: " + os);
+        log.info("OS Name from system property :: " + os);
         String directory = Constants.USER_DIRECTORY + Constants.DRIVERS_DIRECTORY;
         String driverKey = "";
         String driverValue = "";
@@ -92,7 +94,7 @@ public class WebDriverFactory {
         }
 
         driverPath = directory + driverValue + (os.equals("win") ? ".exe" : "");
-        //log.info("Driver Binary :: " + driverPath);
+        log.info("Driver Binary :: " + driverPath);
         System.setProperty(driverKey, driverPath);
     }
 
@@ -116,7 +118,4 @@ public class WebDriverFactory {
     	options.setCapability(CapabilityType.HAS_NATIVE_EVENTS, false);
     	return options;
     }
-	
-	
-
 }

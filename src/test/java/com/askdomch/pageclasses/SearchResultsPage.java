@@ -7,13 +7,11 @@ import com.askomdch.utilities.Util;
 
 public class SearchResultsPage extends CustomDriver {
 	
-	//public WebDriver driver;
 	private String SEARCH_RESULT_TITLE_FIELD = "css=>.woocommerce-products-header__title.page-title";
 	private String VIEW_CART_LINK = "xpath=>//a[@title='View cart']";
 	
 	public SearchResultsPage(WebDriver driver) {
 		super(driver);
-		//this.driver=driver;
 	}
 	
 	public boolean verifySearchResultTitle(String productName) {

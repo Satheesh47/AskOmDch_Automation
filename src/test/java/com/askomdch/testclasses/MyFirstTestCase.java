@@ -13,18 +13,17 @@ import com.askomdch.utilities.ExcelUtility;
 
 public class MyFirstTestCase extends BaseTest {
 
-	private static Logger log = LogManager.getLogger(MyFirstTestCase.class);
+	private static Logger log = LogManager.getLogger(MyFirstTestCase.class.getName());
 
 	@BeforeMethod
 	public void methodSetUp() {
 		log.info("****** Before Method ******");
-
 		// CheckPoint.clearHasMap();
 	}
 
 	@Test(dataProvider = "guestCheckoutUsingDirectBankTransfer")
 	public void guestCheckoutUsing_DirectBankTransfer(String productName, String firstName, String lastName, String streetAddress, String city, String zipCode, String mail) {
-		store = top.storeClick();
+		store = top.storeClick(); 
 		searchResults = store.searchProduct(productName.split(" ")[0]);
 
 		Assert.assertTrue(searchResults.verifySearchResultTitle(productName.split(" ")[0]));
@@ -40,20 +39,20 @@ public class MyFirstTestCase extends BaseTest {
 
 	}
 
-	@Test
-	public void loginAndCheckoutUsing_DirectBankTransfer() {
+	@Test(dataProvider = "loginAndCheckoutUsingDirectBankTransfer")
+	public void loginAndCheckoutUsing_DirectBankTransfer(String productName, String userName, String password, String firstName, String lastName, String country, String streetAddress, String city, String state, String zipCode, String mail) {
 
 		store = top.storeClick();
-		searchResults = store.searchProduct("Blue");
-		Assert.assertTrue(searchResults.verifySearchResultTitle("Blue"));
-		cart = searchResults.clickAddToCartButton("Blue Shoes").clickViewCart();
-		Assert.assertTrue(cart.verifyProductName("Blue Shoes"));
+		searchResults = store.searchProduct(productName.split(" ")[0]);
+		Assert.assertTrue(searchResults.verifySearchResultTitle(productName.split(" ")[0]));
+		cart = searchResults.clickAddToCartButton(productName).clickViewCart();
+		Assert.assertTrue(cart.verifyProductName(productName));
 		checkout = cart.clickProceedToCheckout();
 		// User Login
-		checkout.userLogin(Constants.USER_NAME, Constants.USER_PASSWORD);
+		checkout.userLogin(userName, password);
 		// Filling checkout form
-		checkout.fillFirstNameField("Tester").fillLastNameField("Tester").fillStreetAddressField("123 Test Street");
-		checkout.fillCityField("Chennai").fillZipCodeField("28951").fillEmailField("test@email.com");
+		checkout.fillFirstNameField(firstName).fillLastNameField(lastName).selectCountry(country).fillStreetAddressField(streetAddress);
+		checkout.fillCityField(city).selectState(state).fillZipCodeField(zipCode).fillEmailField(mail);
 		// Order Confirmation
 		checkoutConfirmation = checkout.clickPlaceOrder();
 		Assert.assertTrue(checkoutConfirmation.verifyOrderConfirmationMessage(Constants.ORDER_CONFIRMATION_MESSAGE));
@@ -68,6 +67,12 @@ public class MyFirstTestCase extends BaseTest {
 	@DataProvider(name = "guestCheckoutUsingDirectBankTransfer")
 	public Object[][] getGuestCheckoutUsingDirectBankTransfer() {
 		Object[][] testData = ExcelUtility.getTestData("guestCheckoutUsing_DirectBankTransfer");
+		return (testData);
+	}
+	
+	@DataProvider(name = "loginAndCheckoutUsingDirectBankTransfer")
+	public Object[][] getLoginAndCheckoutUsingDirectBankTransfer() {
+		Object[][] testData = ExcelUtility.getTestData("loginAndCheckoutUsing_DirectBankTransfer");
 		return (testData);
 	}
 
