@@ -4,8 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import com.askdomch.pageclasses.CartPage;
 import com.askdomch.pageclasses.CheckoutConfirmationPage;
@@ -15,11 +15,10 @@ import com.askdomch.pageclasses.SearchResultsPage;
 import com.askdomch.pageclasses.StorePage;
 import com.askdomch.pageclasses.TopNavigationMenu;
 import com.askomdch.utilities.Constants;
-import com.askomdch.utilities.ExcelUtility;
 import com.askomdch.utilities.WebDriverFactory;
 
 public class BaseTest {
-	
+
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 	protected String baseURL;
@@ -31,22 +30,18 @@ public class BaseTest {
 	protected CheckoutPage checkout;
 	protected CheckoutConfirmationPage checkoutConfirmation;
 	private static Logger log = LogManager.getLogger(BaseTest.class);
-	
-	@BeforeClass
-	@Parameters({"browser"})
+
+	@BeforeTest
+	@Parameters({ "browser" })
 	public void browserSetUp(String browser) {
-		log.info("****** Before Class ******");
+		log.info("****** Before Test ******");
 		driver = WebDriverFactory.getInstance().getDriver(browser);
 		driver.get(Constants.BASE_URL);
-		top = new TopNavigationMenu(driver);
-		ExcelUtility.setExcelFile(Constants.EXCEL_FILE, "MyFirstTestCase");
-	}
-	
-	
-	@AfterClass
-	public void commonTearDown() throws Exception {
-		log.info("****** After Class ******");
-		WebDriverFactory.getInstance().quitDriver();
 	}
 
+	@AfterTest
+	public void commonTearDown() throws Exception {
+		log.info("****** After Test ******");
+		WebDriverFactory.getInstance().quitDriver();
+	}
 }

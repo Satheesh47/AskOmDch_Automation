@@ -1,7 +1,11 @@
 package com.askdomch.pageclasses;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import com.askomdch.base.CustomDriver;
+import com.askomdch.utilities.Constants;
+import com.askomdch.utilities.Util;
 
 public class CheckoutPage extends CustomDriver {
 	
@@ -20,6 +24,8 @@ public class CheckoutPage extends CustomDriver {
 	private String LOGIN_BUTTON = "css=>button[value='Login']";
 	private String COUNTRY_DROPDOWN = "id=>billing_country";
 	private String STATE_DROPDOWN = "id=>billing_state";
+	private String TITLE = "css=>.has-text-align-center";
+	private static Logger log = LogManager.getLogger(CheckoutPage.class.getName());
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -79,6 +85,12 @@ public class CheckoutPage extends CustomDriver {
 		sendData(USERNAME_FIELD, userName, "User name");
 		sendData(PASSWORD_FIELD, password, "Password");
 		elementClick(LOGIN_BUTTON, "Login button");
+		log.info("Login: Username & Password entered");
 		waitForElementInVisible(LOGIN_LINK, 5);
+	}
+	
+	public boolean verifyCheckoutURL() {
+		waitForElementVisible(TITLE, 5);
+		return Util.verifyTextMatch(getURL(), Constants.CHECKOUT_URL);
 	}
 }

@@ -2,6 +2,7 @@ package com.askdomch.pageclasses;
 
 import org.openqa.selenium.WebDriver;
 import com.askomdch.base.CustomDriver;
+import com.askomdch.utilities.Constants;
 import com.askomdch.utilities.Util;
 
 public class CartPage extends CustomDriver {
@@ -9,6 +10,7 @@ public class CartPage extends CustomDriver {
 	//public WebDriver driver;
 	private String PRODUCT_NAME = "css=>td[class='product-name'] a";
 	private String CHECKOUT_BUTTON = "xpath=>//a[normalize-space()='Proceed to checkout']";
+	private String TITLE = "css=>.has-text-align-center";
 	
 	public CartPage(WebDriver driver) {
 		super(driver);
@@ -22,6 +24,11 @@ public class CartPage extends CustomDriver {
 	public CheckoutPage clickProceedToCheckout() {
 		elementClick(CHECKOUT_BUTTON, "Proceed to Checkout button");
 		return new CheckoutPage(driver);
+	}
+	
+	public boolean verifyCartURL() {
+		waitForElementVisible(TITLE, 5);
+		return Util.verifyTextMatch(getURL(), Constants.CART_URL);
 	}
 	
 	

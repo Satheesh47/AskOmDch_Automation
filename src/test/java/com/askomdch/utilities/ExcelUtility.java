@@ -23,7 +23,7 @@ public class ExcelUtility {
 			ExcelWSheet = ExcelWBook.getSheet(sheetName);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 	
 	public static String[][] getTestData(String tableName) {
