@@ -27,7 +27,7 @@ public class CartPage extends CustomDriver {
 	}
 	
 	public boolean verifyCartURL() {
-		waitForElementVisible(TITLE, 5);
+		waitForElementVisible(TITLE, 5,"\"Cart Page Title\"");
 		return Util.verifyTextMatch(getURL(), Constants.CART_URL);
 	}
 	

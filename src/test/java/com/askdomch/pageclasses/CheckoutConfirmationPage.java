@@ -21,7 +21,7 @@ public class CheckoutConfirmationPage extends CustomDriver {
 	}
 	
 	public boolean verifyCheckoutConfURL() {
-		waitForElementVisible(ORDER_CONFIRMATION_FIELD, 5);
+		waitForElementVisible(ORDER_CONFIRMATION_FIELD, 5,"\"Order Confirmation field\"");
 		return Util.verifyTextContains(getURL(), Constants.CHECKOUT_CONFIRMATION_URL);
 	}
 

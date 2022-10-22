@@ -590,19 +590,19 @@ public class CustomDriver {
      * @param timeout
      * @return
      */
-    public void waitForElementVisible(String locator, int timeout) {
+    public void waitForElementVisible(String locator, int timeout, String info) {
         By byType = getByType(locator);
         try {
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            log.info("Waiting for max:: " + timeout + " seconds for element to be visible");
+            log.info("Waiting for max:: " + timeout + " seconds for element "+ info +" to be visible");
             //System.out.println("Waiting for max:: " + timeout + " seconds for element to be visible");
             WebDriverWait wait = new WebDriverWait(driver, timeout);
             wait.until(
                     ExpectedConditions.visibilityOfElementLocated(byType));
-            log.info("Element appeared on the web page");
+            log.info("Element "+ info +"appeared on the web page");
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         } catch (Exception e) {
-        	log.error("Element not appeared on the web page");
+        	log.error("Element "+ info +" not appeared on the web page");
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         }
     }
@@ -612,20 +612,20 @@ public class CustomDriver {
      * @param timeout
      * @return
      */
-    public void waitForElementInVisible(String locator, int timeout) {
+    public void waitForElementInVisible(String locator, int timeout, String info) {
         By byType = getByType(locator);
         try {
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            log.info("Waiting for max:: " + timeout + " seconds for element to be visible");
+            log.info("Waiting for max:: " + timeout + " seconds for element " + info +" to be invisible");
             //System.out.println("Waiting for max:: " + timeout + " seconds for element to be invisible");
             WebDriverWait wait = new WebDriverWait(driver, timeout);
             wait.until(
                     ExpectedConditions.invisibilityOfElementLocated(byType));
-            log.info("Element appeared on the web page");
+            log.info("Element " + info +" not appeared on the web page");
             //System.out.println("Element appeared on the web page");
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         } catch (Exception e) {
-        	log.error("Element not appeared on the web page");
+        	log.error("Element " + info +" appeared on the web page");
         	//System.out.println("Element appeared on the web page");
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         }
@@ -787,7 +787,7 @@ public class CustomDriver {
    */
   public String takeScreenshot(String methodName, String browserName) {
       String fileName = Util.getScreenshotName(methodName, browserName);
-      String screenshotDir = Constants.EXTENT_REPORT_DIRECTORY + "//screenshots//";
+      String screenshotDir = Constants.SCREENSHOTS_DIRECTORY;
       new File(screenshotDir).mkdirs();
       String path = screenshotDir + fileName;
 

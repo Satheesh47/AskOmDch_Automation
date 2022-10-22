@@ -26,9 +26,9 @@ public class WebDriverFactory {
 		return instance;
 	}
 	
-	public WebDriver getDriver(String browser) {
+	public WebDriver getThreadedDriver(String browser) {
 		WebDriver driver = null;
-		setDriver(browser);
+		//setDriver(browser);
 		threadedBrowser.set(browser);
 		if (threadedDriver.get() == null) {
 			try {
@@ -72,7 +72,7 @@ public class WebDriverFactory {
 		threadedDriver.set(null);
 	}
 	
-    private void setDriver(String browser) {
+    private void setThreadedDriver(String browser) {
         String driverPath = "";
         String os = Constants.OS_NAME.toLowerCase().substring(0, 3);
         log.info("OS Name from system property :: " + os);

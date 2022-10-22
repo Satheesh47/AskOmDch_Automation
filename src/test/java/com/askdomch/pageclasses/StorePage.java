@@ -9,7 +9,7 @@ public class StorePage extends CustomDriver {
 	
 	private String SEARCH_PRODUCT_FIELD = "xpath=>//input[@class='search-field']";
 	private String SEARCH_BUTTON = "xpath=>//button[@type='submit' and @value='Search']";
-	private String TITLE = "css=>.woocommerce-products-header__title.page-title";
+	private String STORE_PAGE_TITLE = "css=>.woocommerce-products-header__title.page-title";
 	
 	public StorePage(WebDriver driver) {
 		super(driver);
@@ -22,7 +22,7 @@ public class StorePage extends CustomDriver {
 	}
 	
 	public boolean verifyStoreURL() {
-		waitForElementVisible(TITLE, 5);
+		waitForElementVisible(STORE_PAGE_TITLE, 5,"\"Store Page title\"");
 		return Util.verifyTextMatch(getURL(), Constants.STORE_URL);
 	}
 

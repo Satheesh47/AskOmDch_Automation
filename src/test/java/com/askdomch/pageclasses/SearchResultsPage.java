@@ -15,7 +15,8 @@ public class SearchResultsPage extends CustomDriver {
 	}
 	
 	public boolean verifySearchResultTitle(String productName) {
-		waitForElementVisible(SEARCH_RESULT_TITLE_FIELD, 15);
+		String SEARCH_RESULT_TITLE_WITH_TEXT = "xpath=>//h1[contains(text(),'Search results: “"+ productName +"”')]";
+		waitForElementVisible(SEARCH_RESULT_TITLE_WITH_TEXT, 15,"\"Search Results Page title\"");
 		return Util.verifyTextContains(getText(SEARCH_RESULT_TITLE_FIELD, "Search Result title"), "Search results: “"+productName+"”");
 	}
 	
@@ -26,7 +27,7 @@ public class SearchResultsPage extends CustomDriver {
 	}
 	
 	public CartPage clickViewCart() {
-		waitForElementVisible(VIEW_CART_LINK,5);
+		waitForElementVisible(VIEW_CART_LINK,5,"\"View Cart link\"");
 		elementClick(VIEW_CART_LINK, "View Cart link");
 		return new CartPage(driver);
 	}
