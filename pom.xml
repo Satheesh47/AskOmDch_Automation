@@ -136,7 +136,7 @@
 						<parallel>methods</parallel>
 						<threadCount>2</threadCount>
 						<suiteXmlFiles>
-							<suiteXmlFile>src/test/java/resources/TestRunners/MultiBrowser_TestNG.xml</suiteXmlFile>
+							<suiteXmlFile>src/test/resources/TestRunners/MultiBrowser_TestNG.xml</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
